@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { IContato } from '../interfaces/IContato';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { ContatosService } from '../services/contatos.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule, CommonModule],
 })
 export class HomePage {
 
-  private contatos: IContato[] = [
+  public contatos: IContato[] = [
     {
       foto: 'https://img.assinaja.com/upl/lojas/mundosinfinitos/imagens/foto-one-piece.png',
       nome: 'Luffy',
@@ -19,13 +22,13 @@ export class HomePage {
       id: '(18) 98103-3318'
     },
     {
-      foto: 'https://revolucaonerd.com/wordpress/wp-content/files/revolucaonerd.com/2023/02/sanji-one-piece-1024x683.webp',
+      foto: 'https://animes.olanerd.com/wp-content/uploads/2022/09/1662321862_Quem-sera-o-oponente-final-de-Sanji-1200x900.jpg',
       nome: 'Sanji',
       email: 'sanji@yahoo.com.br',
       id: '(14) 98258-6928'
     },
     {
-      foto: 'https://static.wikia.nocookie.net/one-piece-br/images/a/a7/20111128142437%21Brook.jpg/revision/latest?cb=20140329173158&path-prefix=pt',
+      foto: 'https://gartic.com.br/imgs/mural/1b/1bielzitoo/brook-one-piece.png',
       nome: 'Brook',
       email: 'brook23@gmail.com',
       id: '(11) 96802-2984'
@@ -42,13 +45,12 @@ export class HomePage {
       email: 'zorro@gmail.com',
       id: '(19) 98662-4077'
     },
-    {
-      foto: 'https://i.pinimg.com/736x/e6/42/70/e642702130ac2eb11967d3f7b87cc13d.jpg',
-      nome: 'Yamato',
-      email: 'yamato@gmail.com',
-      id: '(13) 99915-8586'
-    },
   ];
 
-  constructor() {}
+  constructor(private router: Router, private contatosService: ContatosService) {}
+
+  goToContato(contato: IContato) {
+    this.contatosService.setContato(contato);
+    this.router.navigateByUrl('/contato');
+  }
 }
