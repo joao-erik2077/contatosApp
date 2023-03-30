@@ -22,7 +22,16 @@ ion-card-content {
 
     .nome {
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
+  }
+}
+
+.round-item {
+  margin-bottom: 3px;
+  --border-radius: 5px;
+
+  ion-label {
+    --color: var(--ion-card-color, var(--ion-item-color, var(--ion-color-step-550, #737373)));
   }
 }
