@@ -14,6 +14,8 @@ import { ContatosService } from '../services/contatos.service';
 })
 export class HomePage {
 
+  public filterTerm = '';
+
   public contatos: IContato[] = [
     {
       foto: 'https://img.assinaja.com/upl/lojas/mundosinfinitos/imagens/foto-one-piece.png',
@@ -47,10 +49,18 @@ export class HomePage {
     },
   ];
 
-  constructor(private router: Router, private contatosService: ContatosService) {}
+  public contatosFilter!: IContato[];
+
+  constructor(private router: Router, private contatosService: ContatosService) {
+    this.contatosFilter = this.contatos;
+  }
 
   goToContato(contato: IContato) {
     this.contatosService.setContato(contato);
     this.router.navigateByUrl('/contato');
+  }
+
+  filterContatos(event: any) {
+    this.contatosFilter = this.contatos.filter(x => x.nome.toLowerCase().includes(event.target.value));
   }
 }

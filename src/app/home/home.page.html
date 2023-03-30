@@ -7,8 +7,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <ion-searchbar (input)="filterContatos($event)"></ion-searchbar>
+
   <ion-list mode="md">
-    <ion-item *ngFor="let contato of contatos" lines="none" color="light" button detail (click)="goToContato(contato)">
+    <ion-item *ngFor="let contato of contatosFilter" lines="none" color="light" button detail (click)="goToContato(contato)">
       <ion-thumbnail slot="start">
         <img [src]="contato.foto">
       </ion-thumbnail>
