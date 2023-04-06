@@ -23,6 +23,7 @@ ion-card-content {
     .nome {
       font-weight: bold;
       font-size: 2rem;
+      margin-bottom: 5vh;
     }
   }
 }
@@ -34,4 +35,8 @@ ion-card-content {
   ion-label {
     --color: var(--ion-card-color, var(--ion-item-color, var(--ion-color-step-550, #737373)));
   }
+}
+
+.text-dark {
+  color: #000000;
 }

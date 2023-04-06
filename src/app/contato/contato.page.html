@@ -17,11 +17,17 @@
       <div>
         <ion-label class="nome ion-text-uppercase ion-text-center" color="dark">{{ contato.nome }}</ion-label>
 
-        <ion-item lines="none" color="light" class="round-item">
-          <ion-label>E-mail: {{ contato.email }}</ion-label>
+        <ion-item lines="none" class="round-item">
+          <ion-label>
+            <h1 class="text-dark">{{ contato.email }}</h1>
+            <p>E-mail</p>
+          </ion-label>
         </ion-item>
-        <ion-item lines="none" color="light" class="round-item">
-          <ion-label>Telefone: {{ contato.id }}</ion-label>
+        <ion-item lines="none" class="round-item">
+          <ion-label>
+            <h1 class="text-dark">{{ contato.id }}</h1>
+            <p>Telefone</p>
+          </ion-label>
         </ion-item>
       </div>
 
